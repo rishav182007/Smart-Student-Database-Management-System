@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 
 import 'register_screen.dart';
+import 'add_student_screen.dart';
+import 'add_attendance_screen.dart';
+import 'add_marks_screen.dart';
+import 'result_screen.dart';
+import 'admin_profile_screen.dart';
+import 'students_screen.dart';
+import 'records_screen.dart';
 
 class AdminHomeScreen extends StatefulWidget {
   const AdminHomeScreen({super.key});
@@ -102,6 +109,12 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
               setState(() {
                 currentIndex = 3;
               });
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const AdminProfileScreen(),
+                ),
+              );
             },
             child: Container(
               height: 44,
@@ -567,7 +580,14 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                   title: 'Add Student',
                   icon: Icons.person_add_alt_1_rounded,
                   color: navy,
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AddStudentScreen(),
+                      ),
+                    );
+                  },
                 ),
               ),
 
@@ -578,7 +598,14 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                   title: 'Attendance',
                   icon: Icons.bar_chart_rounded,
                   color: const Color(0xFFFFBD3F),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AddAttendanceScreen(),
+                      ),
+                    );
+                  },
                 ),
               ),
             ],
@@ -593,7 +620,14 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                   title: 'Marks',
                   icon: Icons.edit_note_rounded,
                   color: const Color(0xFF35AD82),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AddMarksScreen(),
+                      ),
+                    );
+                  },
                 ),
               ),
 
@@ -604,7 +638,14 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                   title: 'Results',
                   icon: Icons.assignment_turned_in_outlined,
                   color: const Color(0xFF8064D8),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ResultScreen(),
+                      ),
+                    );
+                  },
                 ),
               ),
             ],
@@ -878,6 +919,22 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
 
     return GestureDetector(
       onTap: () {
+        if (index == 1) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const StudentsScreen()),
+          );
+          return;
+        }
+
+        if (index == 2) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const RecordsScreen()),
+          );
+          return;
+        }
+
         setState(() {
           currentIndex = index;
         });

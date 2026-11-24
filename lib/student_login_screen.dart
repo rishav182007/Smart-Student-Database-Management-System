@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'home_screen.dart';
+import 'student_home_screen.dart';
 
 class StudentLoginScreen extends StatefulWidget {
   const StudentLoginScreen({super.key});
@@ -29,10 +29,9 @@ class _StudentLoginScreenState extends State<StudentLoginScreen> {
       return;
     }
 
-    // Navigate to Home Screen
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => const AdminHomeScreen()),
+      MaterialPageRoute(builder: (context) => const StudentHomeScreen()),
     );
   }
 
